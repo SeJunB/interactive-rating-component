@@ -1,11 +1,11 @@
 import React from 'react';
 
 type Props = {
-    currentRating: number,
+    selectedRating: number,
     handleRatingChange: (newRating: number) => void,
 }
 
-export function RatingList({ currentRating, handleRatingChange }: Props) {
+export function RatingList({ selectedRating, handleRatingChange }: Props) {
 
     const ratings = [1, 2, 3, 4, 5].map((r, i) => {
         let selectedClass = 'rating-background cursor-pointer bg-light-gray text-white';
@@ -13,7 +13,7 @@ export function RatingList({ currentRating, handleRatingChange }: Props) {
 
         return (
             <li key={i} onClick={(() => handleRatingChange(r))}
-                className={((currentRating === -1) || (currentRating !== r)) ?
+                className={((selectedRating === -1) || (selectedRating !== r)) ?
                     notSelectedClass : selectedClass}>
                 {r}
             </li>

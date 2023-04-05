@@ -18,6 +18,10 @@
 }
 
 @layer components {
+    .card {
+        @apply w-[80%] sm:w-[70%] md:w-[60%] lg:w-[50%] p-5 rounded-xl mx-auto bg-primary-bg space-y-6 text-medium-gray;
+    }
+
     .rating-background{
         @apply px-4 py-[0.5rem] rounded-full bg-dark-blue;
     }
@@ -25,6 +29,18 @@
     .button {
         @apply block px-10 py-3;
     }
+   
+    button[data-icon="back-arrow"] {
+        @apply w-[30px] h-[30px] bg-light-gray;
+        -webkit-mask-image:url('/images/back_arrow_icon.svg');
+        -webkit-mask-size: cover;
+        mask-image: url('/images/back_arrow_icon.svg');
+    }
+
+    button[data-icon="back-arrow"]:hover {
+        @apply bg-orange;
+   }
+
 }
 
 @layer utilities {
