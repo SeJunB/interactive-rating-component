@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 
-
 @layer base {
     @font-face {
         font-family: "Overpass";
@@ -13,5 +12,34 @@
         font-family: "Overpass", system-ui, sans-serif;
         font-size: 15px;
     }
+    body {
+        @apply h-screen bg-black flex items-center justify-center;
+    }
 }
+
+@layer components {
+    .rating-background{
+        @apply px-4 py-[0.5rem] rounded-full bg-dark-blue;
+    }
+
+    .button {
+        @apply block px-10 py-3;
+    }
+}
+
+@layer utilities {
+    .visually-hidden:not(:focus):not(:active) {
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+    }
+}   
+
+
+
+
 
