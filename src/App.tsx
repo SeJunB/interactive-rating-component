@@ -13,21 +13,24 @@ function App() {
 
     const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault();
-        setFormSubmitted(true);
+        setFormSubmitted(selectedRating !== -1);
     };
 
     const handleBackButton = () => {
         setFormSubmitted(false);
     };
 
-    console.log(formSubmitted)
+
 
     return (formSubmitted) ?
         <ThankYouCard selectedRating={selectedRating} handleBackButton={handleBackButton} /> :
         (<RatingForm
+            selectedRating={selectedRating}
             handleSubmit={handleSubmit}>
             <RatingList selectedRating={selectedRating} handleRatingChange={handleRatingChange} />
-        </RatingForm >);
+        </RatingForm >
+
+        );
 }
 
 export default App

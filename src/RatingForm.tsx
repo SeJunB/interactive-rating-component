@@ -1,12 +1,15 @@
-
 import iconStar from '/images/icon-star.svg';
-import { FormEventHandler } from "react";
+import { useState, FormEventHandler } from "react";
 
 type Prop = {
+    selectedRating: number,
     children: React.ReactNode,
     handleSubmit: FormEventHandler<HTMLFormElement>,
 };
-export function RatingForm({ children, handleSubmit }: Prop) {
+
+export function RatingForm({ selectedRating, children, handleSubmit }: Prop) {
+    const [showErrorMessage, setShowErrorMessage] = useState(false);
+    //{!ratingSelected && <p className="text-center text-orange">Please select a rating!</p>}
     return (
         <main className="card">
             <img className="block p-2 rounded-full bg-dark-blue" src={iconStar} alt="Orange Start" />
@@ -16,9 +19,13 @@ export function RatingForm({ children, handleSubmit }: Prop) {
                 to help us improve our offering!
             </p>
             {children}
-            <form onSubmit={handleSubmit}>
+            <form className="space-y-3" onSubmit={(e) => {
+                setShowErrorMessage(selectedRating === -1);
+                handleSubmit(e)
+            }}>
                 <button type="submit" className="button rounded-full w-[70%] mx-auto bg-orange text-white text-center uppercase
-            hover:bg-white hover:text-orange ">Submit</button>
+                hover:bg-white hover:text-orange ">Submit</button>
+                {showErrorMessage && <p className="text-orange text-center">Please select a rating</p>}
             </form>
         </main>
     );
