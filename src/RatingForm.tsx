@@ -23,9 +23,9 @@ export function RatingForm({ selectedRating, children, handleSubmit }: Prop) {
                 setShowErrorMessage(selectedRating === -1);
                 handleSubmit(e)
             }}>
-                <button type="submit" className="button rounded-full w-[70%] mx-auto bg-orange text-white text-center uppercase
+                <button data-cy="btn-submit" type="submit" className="button rounded-full w-[70%] mx-auto bg-orange text-white text-center uppercase
                 hover:bg-white hover:text-orange ">Submit</button>
-                {showErrorMessage && <p className="text-orange text-center">Please select a rating</p>}
+                {showErrorMessage && <p data-cy="no-rating-selected-error-msg" className="text-orange text-center">Please select a rating</p>}
             </form>
         </main>
     );

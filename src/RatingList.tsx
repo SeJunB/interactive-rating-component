@@ -10,7 +10,7 @@ export function RatingList({ selectedRating, handleRatingChange }: Props) {
         let notSelectedClass = 'rating-background cursor-pointer hover:bg-orange hover:text-white';
 
         return (
-            <li key={i} onClick={(() => handleRatingChange(r))}
+            <li data-cy={`rating-${r}`} key={i} onClick={(() => handleRatingChange(r))}
                 className={((selectedRating === -1) || (selectedRating !== r)) ?
                     notSelectedClass : selectedClass}>
                 {r}
